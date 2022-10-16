@@ -1,0 +1,39 @@
+<p>TRANSACTION</p>
+<button routerLink="/home">HOME</button>
+<p>CARD</p>
+
+<div class="modal-content ">
+
+    <div class="container">
+       <hr> 
+        <p  class="boton">transacciones</p>
+        <hr> 
+        
+    </div>
+    </div>
+<hr>
+<hr>
+<hr>
+<table class="table table-bordered table-striped" id="customers">
+    <thead>
+        <tr>
+            <th> PAN</th>
+            <th>Referencia</th>
+            <th>Total Compra</th>
+            <th>Fecha Transaccion</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let transact of transactions">
+            <td>{{transact.tarjetaDTO?.panMask}}</td>
+            <td>{{transact.numeroReferencia}}</td>
+            <td>{{transact.totalCompra| currency:'COP':'symbol-narrow':'4.2-2'}}</td>            
+            <td>{{transact.fechaTransaccion | date: 'dd/MM/yyyy h:mm a'| lowercase  }}</td>
+            <td>{{transact.estadoTransaccionDTO?.estado }}</td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<hr>
+<hr>
